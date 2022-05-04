@@ -1,4 +1,199 @@
+@font-face {
+  font-family: 'Amazon Ember';
+  src: local('Amazon Ember'),
+    url("./assets/fonts/Amazon Ember.ttf") format("truetype");
+}
+
 body {
   margin: 0;
   padding: 0;
+  font-family: 'Amazon Ember', sans-serif;
+}
+
+h2, h4, p {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  color: white;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 0px 10px;
+  background-color: #131921;
+}
+
+.navbar .logo {
+  position: relative;
+  cursor: pointer;
+}
+
+.navbar .logo p {
+  position: absolute;
+  bottom: 20px;
+  right: -5px;
+  font-size: 13.5px;
+  font-weight: 400;
+}
+
+.navbar .nav-address {
+  display: flex;
+  align-items: center;
+  gap: 0.5px;
+  cursor: pointer;
+}
+
+.navbar .nav-address p {
+  color: #ccc;
+  font-size: 12px;
+}
+
+.navbar .nav-address h4 {
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.navbar .nav-search {
+  display: flex;
+  flex-grow: 1;
+  max-width: 656px;
+  height: 40px;
+}
+
+.navbar .nav-search > div {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  color: #555;
+  background-color: #f3f3f3;
+  width: 52px;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+  border-right: 1px solid rgb(205, 205, 205);
+  cursor: pointer;
+}
+
+.navbar .nav-search > div:hover {
+  color: black;
+  background-color: #dadada;
+}
+
+.navbar .nav-search > div:hover p::after {
+  border-top-color: black;
+}
+
+.navbar .nav-search p {
+  transform: translateX(-7px);
+}
+
+.navbar .nav-search p::after {
+  position: absolute;
+  top: 5px;
+  right: -15px;
+  content: '';
+  border: 4px solid transparent;
+  border-top: 4px solid #666;
+  border-bottom-width: 0px;
+}
+
+.navbar .nav-search input {
+  outline: none;
+  flex: 1;
+  min-width: 274px;
+  color: #111;
+  text-indent: 8px;
+  padding: 7px 10px 10px 0;
+  font-size: 15px;
+  font-weight: 400;
+  font-family: 'Amazon Ember', sans-serif;
+  border: none;
+}
+
+.navbar .nav-search button {
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #febd69;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  width: 45px;
+  cursor: pointer;
+}
+
+.navbar .nav-search button:hover {
+  background-color: #f3a847;
+}
+
+.navbar .flag-icon {
+  position: relative;
+  width: 35px;
+  min-width: 35px;
+  padding-top: 5px;
+  cursor: pointer;
+}
+
+.navbar .flag-icon::after {
+  position: absolute;
+  top: 13px;
+  right: 0px;
+  content: '';
+  border: 4px solid transparent;
+  border-top: 4px solid #a7acb2;
+  border-bottom-width: 0px;
+}
+
+.cart-icon {
+  position: relative;
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+.cart-icon h4 {
+  position: absolute;
+  top: 2px;
+  left: 27px;
+  font-size: 16px;
+  color: #f08804;
+}
+
+.cart-icon p {
+  position: absolute;
+  bottom: 9px;
+  right: -20px;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+}
+
+.nav-base {
+  height: 39px;
+  color: white;
+  background-color: #232f3e;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.nav-base p {
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.nav-base p:first-of-type {
+  font-weight: bold;
+}
+
+.item-list {
+  min-height: 50vh;
+  background-color: #EAEDED;
 }
