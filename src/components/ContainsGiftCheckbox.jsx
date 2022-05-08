@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 import { toggleAllGifts } from "../features/cart/cartSlice"
 
-const GiftCheckbox = () => {
+const ContainsGiftCheckbox = () => {
     const containsGift = useSelector(store => store.cart.containsGift)
 
     const dispatch = useDispatch()
@@ -21,4 +21,4 @@ const GiftCheckbox = () => {
     )
 }
 
-export default GiftCheckbox
+export default ContainsGiftCheckbox

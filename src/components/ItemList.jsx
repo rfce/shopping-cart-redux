@@ -1,23 +1,29 @@
 import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { calculateBill } from '../features/cart/cartSlice'
+import { shallowEqual, useDispatch, useSelector } from 'react-redux'
+import { calculateBill, evaluateGifts } from '../features/cart/cartSlice'
 import SingleItem from './SingleItem'
 import Subtotal from './Subtotal'
 
 const ItemList = () => {
-    const items = useSelector(store => store.cart.items)
+    const itemQuantities = useSelector(
+        store => store.cart.items.map(item => item.quantity),
+        shallowEqual
+    )
 
 	const dispatch = useDispatch()
 
 	useEffect(() => {
+        dispatch(evaluateGifts())
 		dispatch(calculateBill())
-	}, [items])
+	}, [itemQuantities])
 
     return (
         <div className="items">
             <h2>Shopping Cart</h2>
             <div className="items-list">
-                {items.map(item => <SingleItem key={item.id} {...item} />)}
+                {itemQuantities.map(
+                    (_, index) => <SingleItem key={index} index={index} />
+                )}
             </div>
             <Subtotal />
         </div>

@@ -1,6 +1,6 @@
 import Subtotal from './Subtotal'
 import tickIcon from '../assets/images/green-tick.png'
-import GiftCheckbox from './GiftCheckbox'
+import ContainsGiftCheckbox from './ContainsGiftCheckbox'
 
 const Sidebar = () => {
     return (
@@ -14,7 +14,7 @@ const Sidebar = () => {
                     </p>
                 </div>
                 <Subtotal />
-                <GiftCheckbox />
+                <ContainsGiftCheckbox />
                 <button className='proceed-buy'>Proceed to Buy</button>
             </div>
         </div>

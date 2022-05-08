@@ -1,10 +1,13 @@
 import ItemPrice from './ItemPrice'
 import fulfilledIcon from '../assets/images/amazon-fulfilled.png'
-import dropIcon from '../assets/images/down-arrow.png'
-import { useDispatch } from 'react-redux'
-import { removeItem, toggleGift } from '../features/cart/cartSlice'
+import { shallowEqual, useDispatch, useSelector } from 'react-redux'
+import { removeItem } from '../features/cart/cartSlice'
+import IsGiftCheckbox from './IsGiftCheckbox'
+import ItemQuantity from './ItemQuantity'
 
-const SingleItem = (props) => {
+const SingleItem = ({ index }) => {
+    // Select only static properties
+    // If dynamic properties (gift, quantity) change, item won't be re-rendered
     const {
         id, 
         title, 
@@ -12,11 +15,15 @@ const SingleItem = (props) => {
         author, 
         price, 
         type, 
-        gift, 
-        quantity, 
         category,
         description
-    } = props
+    } = useSelector(store => {
+        return {
+            ...store.cart.items[index],
+            gift: undefined,
+            quantity: undefined
+        }
+    }, shallowEqual)
 
     const dispatch = useDispatch()
 
@@ -39,18 +46,7 @@ const SingleItem = (props) => {
                     <p className="item-shipping">Eligible for FREE Shipping</p>
                 )}
                 <img src={fulfilledIcon} alt='Amazon fulfilled icon' />
-                <div className='gift-item'>
-                    <input 
-                        type="checkbox" 
-                        id={`gift-item-${id}`} 
-                        name={`gift-item-${id}`}  
-                        value={gift} 
-                        checked={gift} 
-                        onChange={() => dispatch(toggleGift(id))}
-                    />
-                    <label htmlFor={`gift-item-${id}`}>This will be a gift</label>
-                    <a>Learn more</a>
-                </div>
+                <IsGiftCheckbox id={id} />
                 {description && description.map((looks, index) => (
                     <div key={index} className='item-description'>
                         <h5>{looks.property}:</h5>
@@ -58,12 +54,7 @@ const SingleItem = (props) => {
                     </div>
                 ))}
                 <div className='item-controllers'>
-                    <div className='item-quantity'>
-                        <p>
-                            Qty: <span>{quantity}</span>
-                        </p>
-                        <img src={dropIcon} alt='dropdown-arrow' />
-                    </div>
+                    <ItemQuantity id={id} />
                     <h4 onClick={() => dispatch(removeItem(id))}>Delete</h4>
                     <h4>Save for later</h4>
                     <h4>See more like this</h4>
