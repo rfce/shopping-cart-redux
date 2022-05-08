@@ -5,7 +5,18 @@ import { useDispatch } from 'react-redux'
 import { removeItem, toggleGift } from '../features/cart/cartSlice'
 
 const SingleItem = (props) => {
-    const { id, title, image, author, price, type, gift, quantity, category, description } = props
+    const {
+        id, 
+        title, 
+        image, 
+        author, 
+        price, 
+        type, 
+        gift, 
+        quantity, 
+        category,
+        description
+    } = props
 
     const dispatch = useDispatch()
 
@@ -31,13 +42,13 @@ const SingleItem = (props) => {
                 <div className='gift-item'>
                     <input 
                         type="checkbox" 
-                        id="gift-item" 
-                        name="gift-item" 
+                        id={`gift-item-${id}`} 
+                        name={`gift-item-${id}`}  
                         value={gift} 
                         checked={gift} 
                         onChange={() => dispatch(toggleGift(id))}
                     />
-                    <span>This will be a gift</span>
+                    <label htmlFor={`gift-item-${id}`}>This will be a gift</label>
                     <a>Learn more</a>
                 </div>
                 {description && description.map((looks, index) => (

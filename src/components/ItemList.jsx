@@ -1,23 +1,25 @@
-import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { calculateBill } from '../features/cart/cartSlice'
 import SingleItem from './SingleItem'
+import Subtotal from './Subtotal'
 
 const ItemList = () => {
-    const {items, bill} = useSelector(store => store.cart)
+    const items = useSelector(store => store.cart.items)
+
+	const dispatch = useDispatch()
+
+	useEffect(() => {
+		dispatch(calculateBill())
+	}, [items])
 
     return (
-        <div className="item-container">
-            <div className="items">
-                <h2>Shopping Cart</h2>
-                <div className="items-list">
-                    {items.map(item => <SingleItem key={item.id} {...item} />)}
-                </div>
-                <div className="subtotal">
-                    Subtotal
-                </div>
+        <div className="items">
+            <h2>Shopping Cart</h2>
+            <div className="items-list">
+                {items.map(item => <SingleItem key={item.id} {...item} />)}
             </div>
-            <div className="proceed-buy">
-                2
-            </div>
+            <Subtotal />
         </div>
     )
 }

@@ -1,10 +1,10 @@
 import Header from './Header'
 import SearchBar from "./SearchBar"
 import NavMenu from './NavMenu'
-import cartIcon from '../assets/images/cart-icon.png'
 import logo from '../assets/images/amazon-logo.png'
 import locationIcon from '../assets/images/location-icon.png'
 import flagIcon from '../assets/images/india-flag.png'
+import CartIcon from './CartIcon'
 
 const Navbar = () => {
 	return (
@@ -33,11 +33,7 @@ const Navbar = () => {
 					top={'Returns'} 
 					bottom={'& Orders'} 
 				/>
-				<div className="cart-icon">
-					<h4>1</h4>
-					<img src={cartIcon} alt='cart-icon' />
-					<p>Cart</p>
-				</div>
+				<CartIcon />
 			</div>
 			<Header />
 		</>
