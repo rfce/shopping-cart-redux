@@ -223,6 +223,22 @@ h2, h3, h4, h5, p {
   border-bottom: 1px solid rgb(221, 221, 221);
 }
 
+.items .deleted-item {
+  font-size: 14px;
+  padding: 26px 30px;
+  border: 1px solid #E7E7E7;
+}
+
+.items .deleted-item > a {
+  color: #007185;
+  cursor: pointer;
+}
+
+.items .deleted-item > a:hover {
+  color: #C7511F;
+  text-decoration: underline;
+}
+
 .item-container .items .items-list {
   display: flex;
   flex-direction: column;
@@ -337,10 +353,6 @@ h2, h3, h4, h5, p {
   align-items: center;
   gap: 3px;
   font-size: 12px;
-}
-
-.single-item .gift-item label {
-  cursor: pointer;
 }
 
 .single-item .gift-item a {
@@ -474,10 +486,6 @@ h2, h3, h4, h5, p {
   font-size: 14px;
   margin-top: -6px;
   margin-bottom: 15px;
-}
-
-.contains-gift label {
-  cursor: pointer;
 }
 
 .proceed-buy {

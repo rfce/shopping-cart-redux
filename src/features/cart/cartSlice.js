@@ -13,7 +13,12 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         removeItem: (state, {payload}) => {
-            state.items = state.items.filter(item => item.id != payload)
+            // Delete items with zero quantity
+            state.items = state.items.filter(item => item.quantity)
+
+            // Set zero quantity for clicked item
+            const target = state.items.find(item => item.id == payload)
+            target.quantity = 0
         },
         toggleGift: (state, {payload}) => {
             const target = state.items.find(item => item.id == payload)
@@ -26,7 +31,7 @@ const cartSlice = createSlice({
             // Calculate total amount and items count
             state.items.forEach(item => {
                 const { rupee, paise } = item.price
-                total += rupee + (paise / 100)
+                total += (rupee + (paise / 100)) * item.quantity
 
                 count += item.quantity
             })

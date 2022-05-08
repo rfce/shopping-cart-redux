@@ -4,10 +4,9 @@ import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { removeItem } from '../features/cart/cartSlice'
 import IsGiftCheckbox from './IsGiftCheckbox'
 import ItemQuantity from './ItemQuantity'
+import ItemDeleted from './ItemDeleted'
 
 const SingleItem = ({ index }) => {
-    // Select only static properties
-    // If dynamic properties (gift, quantity) change, item won't be re-rendered
     const {
         id, 
         title, 
@@ -15,19 +14,19 @@ const SingleItem = ({ index }) => {
         author, 
         price, 
         type, 
+        quantity, 
         category,
         description
     } = useSelector(store => {
         return {
             ...store.cart.items[index],
-            gift: undefined,
-            quantity: undefined
+            gift: undefined
         }
     }, shallowEqual)
 
     const dispatch = useDispatch()
 
-    return (
+    return quantity ? (
         <div className="single-item">
             <img src={image} alt="item-image" />
             <div>
@@ -61,7 +60,7 @@ const SingleItem = ({ index }) => {
                 </div>
             </div>
         </div>
-    )
+    ) : <ItemDeleted title={title} />
 }
 
 export default SingleItem
