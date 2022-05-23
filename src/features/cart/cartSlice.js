@@ -19,6 +19,7 @@ const cartSlice = createSlice({
             // Set zero quantity for clicked item
             const target = state.items.find(item => item.id == payload)
             target.quantity = 0
+            target.gift = false
         },
         toggleGift: (state, {payload}) => {
             const target = state.items.find(item => item.id == payload)
@@ -52,10 +53,15 @@ const cartSlice = createSlice({
         },
         evaluateGifts: (state, action) => {
             state.containsGift = state.items.some(item => item.gift)
+        },
+        changeItemQuantity: (state, {payload}) => {
+            const {id, quantity} = payload
+            const target = state.items.find(item => item.id == id)
+            target.quantity = quantity
         }
     }
 })
 
-export const {removeItem, toggleGift, calculateBill, toggleAllGifts, evaluateGifts} = cartSlice.actions
+export const {removeItem, toggleGift, calculateBill, toggleAllGifts, evaluateGifts, changeItemQuantity} = cartSlice.actions
 
 export default cartSlice.reducer

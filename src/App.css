@@ -388,6 +388,7 @@ h2, h3, h4, h5, p {
 }
 
 .item-controllers .item-quantity {
+  position: relative;
   font-size: 13px;
   height: 29px;
   padding-left: 11px;
@@ -405,6 +406,62 @@ h2, h3, h4, h5, p {
 
 .item-controllers .item-quantity span {
   padding-left: 2px;
+}
+
+.select-quantity {
+  all: unset;
+  position: absolute;
+  top: -1px;
+  width: 90px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #cdcdcd;
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 13%);
+  z-index: 1;
+}
+
+.select-quantity.open-upwards {
+  top: -230px;
+}
+
+.select-quantity.hidden {
+  display: none;
+}
+
+.select-quantity > li {
+  all: unset;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 2px 12px;
+  border: 1px solid transparent;
+}
+
+.select-quantity > li:first-of-type {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.select-quantity > li:last-of-type {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.select-quantity > li:hover {
+  border-color: #D5D9D9;
+  background-color: #F0F2F2;
+}
+
+.select-quantity .current-quantity {
+  border-color: #D5D9D9;
+  border-color: #007185;
+  background-color: #EDFDFF;
+}
+
+.select-quantity .current-quantity:hover {
+  border-color: #007185;
+  background-color: #F0F2F2;
 }
 
 .item-controllers > h4 {

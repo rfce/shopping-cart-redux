@@ -17,9 +17,11 @@ const ItemList = () => {
 		dispatch(calculateBill())
 	}, [itemQuantities])
 
+    const cartEmpty = itemQuantities.length == 1 && itemQuantities[0] == 0
+
     return (
         <div className="items">
-            <h2>Shopping Cart</h2>
+            <h2>{cartEmpty ? "Your Amazon Cart is empty." : "Shopping Cart"}</h2>
             <div className="items-list">
                 {itemQuantities.map(
                     (_, index) => <SingleItem key={index} index={index} />
