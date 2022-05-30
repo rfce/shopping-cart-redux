@@ -123,6 +123,7 @@ h2, h3, h4, h5, p {
 
 .navbar .nav-search button {
   all: unset;
+  font-family: 'Amazon Ember';
   display: flex;
   justify-content: center;
   align-items: center;
@@ -418,6 +419,7 @@ h2, h3, h4, h5, p {
 
 .select-quantity {
   all: unset;
+  font-family: 'Amazon Ember';
   position: absolute;
   top: -1px;
   width: 90px;
@@ -440,6 +442,7 @@ h2, h3, h4, h5, p {
 
 .select-quantity > li {
   all: unset;
+  font-family: 'Amazon Ember';
   font-size: 14px;
   line-height: 20px;
   padding: 2px 12px;
@@ -538,6 +541,7 @@ h2, h3, h4, h5, p {
 
 .si-item > button {
   all: unset;
+  font-family: 'Amazon Ember';
   display: block;
   text-align: center;
   width: 100%;
@@ -614,6 +618,8 @@ h2, h3, h4, h5, p {
 
 .sidebar-header > h5 {
   all: unset;
+  font-family: 'Amazon Ember';
+  font-size: 12px;
   color: #067D62;
 }
 
@@ -652,6 +658,7 @@ h2, h3, h4, h5, p {
 
 .proceed-buy {
   all: unset;
+  font-family: 'Amazon Ember';
   width: 258px;
   height: 29px;
   display: flex;
