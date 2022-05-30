@@ -5,7 +5,8 @@ const initialState = {
     items: items,
     itemsCount: 0,
     bill: { rupee: 0, paise: 0 },
-    containsGift: false
+    containsGift: false,
+    savedItems: []
 }
 
 const cartSlice = createSlice({
@@ -15,6 +16,8 @@ const cartSlice = createSlice({
         removeItem: (state, {payload}) => {
             // Delete items with zero quantity
             state.items = state.items.filter(item => item.quantity)
+
+            state.savedItems = state.savedItems.filter(item => item.saved)
 
             // Set zero quantity for clicked item
             const target = state.items.find(item => item.id == payload)
@@ -58,10 +61,56 @@ const cartSlice = createSlice({
             const {id, quantity} = payload
             const target = state.items.find(item => item.id == id)
             target.quantity = quantity
+        },
+        saveForLater: (state, {payload}) => {
+            // Delete items with zero quantity
+            state.items = state.items.filter(item => item.quantity)
+
+            state.savedItems = state.savedItems.filter(item => item.saved)
+
+            const target = state.items.find(item => item.id == payload)
+            
+            state.savedItems.unshift(target)
+          
+            target.saved = true
+            target.quantity = 0
+            target.gift = false
+        },
+        deleteFromSaved: (state, {payload}) => {
+            state.savedItems = state.savedItems.filter(item => item.saved)
+
+            // Delete items with zero quantity
+            state.items = state.items.filter(item => item.quantity)
+
+            const target = state.savedItems.find(item => item.id == payload)
+            target.saved = false
+        },
+        moveToCart: (state, {payload}) => {
+            // Delete items with zero quantity
+            state.items = state.items.filter(item => item.quantity)
+
+            state.savedItems = state.savedItems.filter(item => item.saved)
+
+            const target = state.savedItems.find(item => item.id == payload)
+
+            target.quantity = 1
+            target.saved = false
+
+            state.items.unshift(target)
         }
     }
 })
 
-export const {removeItem, toggleGift, calculateBill, toggleAllGifts, evaluateGifts, changeItemQuantity} = cartSlice.actions
+export const {
+    removeItem, 
+    toggleGift, 
+    calculateBill, 
+    toggleAllGifts, 
+    evaluateGifts, 
+    changeItemQuantity,
+    saveForLater,
+    deleteFromSaved,
+    moveToCart
+} = cartSlice.actions
 
 export default cartSlice.reducer

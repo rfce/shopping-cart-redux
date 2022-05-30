@@ -15,7 +15,8 @@ const items = [
             value: 'Books',
             bestseller: false
         },
-        description: null
+        description: null,
+        saved: false
     },
     {
         id: 'cab82470-012d-4c5b-9ca7-f0d1ce3c244e',
@@ -38,7 +39,8 @@ const items = [
                 property: "Colour",
                 value: "Pitch Black"
             }
-        ]
+        ],
+        saved: false
     },
     {
         id: '4910130e-5009-4324-842c-d7bdde16ecc4',
@@ -56,7 +58,8 @@ const items = [
             value: 'Movies & TV Shows',
             bestseller: false
         },
-        description: null
+        description: null,
+        saved: false
     },
     {
         id: '5f426d3c-beb5-4e94-8472-5576deefb6fe',
@@ -79,7 +82,8 @@ const items = [
                 property: "Style name",
                 value: "SSK-SMW-12W-5C"
             }
-        ]
+        ],
+        saved: false
     },
     {
         id: '5481747d-e929-40e1-b41b-f93856106cee',
@@ -110,7 +114,8 @@ const items = [
                 property: "Style name",
                 value: "4GB"
             }
-        ]
+        ],
+        saved: false
     }
 ]
 

@@ -6,7 +6,9 @@ const CartIcon = () => {
 
     return (
         <div className="cart-icon">
-            <h4>{itemsCount}</h4>
+            <h4 className={itemsCount > 9 ? 'down-size' : undefined}>
+                {itemsCount}
+            </h4>
             <img src={cartIcon} alt='cart-icon' />
             <p>Cart</p>
         </div>

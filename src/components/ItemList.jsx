@@ -17,7 +17,7 @@ const ItemList = () => {
 		dispatch(calculateBill())
 	}, [itemQuantities])
 
-    const cartEmpty = itemQuantities.length == 1 && itemQuantities[0] == 0
+    const cartEmpty = itemQuantities.length == 0 || (itemQuantities.length == 1 && itemQuantities[0] == 0)
 
     return (
         <div className="items">
