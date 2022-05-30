@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/shopping-cart-redux/static/css/main.77f097eb.css",
+    "main.css": "/shopping-cart-redux/static/css/main.47549ba9.css",
     "main.js": "/shopping-cart-redux/static/js/main.5d872963.js",
     "static/media/Amazon Ember.ttf": "/shopping-cart-redux/static/media/Amazon Ember.4c5f8783fc6015d993cd.ttf",
     "static/media/Amazon Ember Bold.ttf": "/shopping-cart-redux/static/media/Amazon Ember Bold.57ee3d5949a836e4bf92.ttf",
     "index.html": "/shopping-cart-redux/index.html",
-    "main.77f097eb.css.map": "/shopping-cart-redux/static/css/main.77f097eb.css.map",
+    "main.47549ba9.css.map": "/shopping-cart-redux/static/css/main.47549ba9.css.map",
     "main.5d872963.js.map": "/shopping-cart-redux/static/js/main.5d872963.js.map"
   },
   "entrypoints": [
-    "static/css/main.77f097eb.css",
+    "static/css/main.47549ba9.css",
     "static/js/main.5d872963.js"
   ]
 }
